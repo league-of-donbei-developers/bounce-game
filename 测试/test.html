@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			html,body{
+				margin: 0px;
+				padding: 0px;
+			}
+			#canvas{
+				height: 100%;
+				width: 100%;
+				background-color: black;
+				position: absolute;
+				top:0px;
+				left: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="" height=""></canvas>
+	</body>
+</html>
+<script>
+	
+	
+	let canvas = document.getElementById('canvas');
+	
+	let ctx = canvas.getContext('2d');
+	
+	canvas.height = window.innerHeight;
+	canvas.width = window.innerWidth;
+	
+	let left_bound  = canvas.width / 3;
+	let right_bound = canvas.width - left_bound;
+	
+	
+	ctx.strokeStyle = 'white';
+	ctx.beginPath();
+	ctx.moveTo(left_bound,0);
+	ctx.lineTo(left_bound,canvas.height);
+	ctx.stroke();
+	
+	ctx.beginPath();
+	ctx.moveTo(right_bound,0);
+	ctx.lineTo(right_bound,canvas.height);
+	ctx.stroke(); 	
+	
+	class Brick{
+		
+		
+		constructor(x,y,width,height){
+			this.x = x;
+			this.y = y;
+			this.width = width;
+			this.height = height;
+			
+		}
+		
+		draw(){
+			ctx.strokeStyle = 'white';
+			ctx.fillStyle = '#55007f';
+			ctx.beginPath();
+			ctx.moveTo(this.x,this.y);
+			ctx.lineTo(this.x + this.width,this.y);
+			ctx.lineTo(this.x + this.width,this.y + this.height);
+			ctx.lineTo(this.x,this.y + this.height);
+			ctx.closePath();
+			ctx.stroke();
+			ctx.fill();
+		}
+		
+		checkCollision(ball){
+			let x = ball.x;
+			let y = ball.y;
+			let bottom = this.y + this.height;
+			let right = this.x + this.width;
+			let top = this.y;
+			let left = this.x;
+			let dis = ball.radius;
+			
+			if(Math.abs(left - x) <= dis && y >= top && y <= bottom){
+				ball.changeDir(1)
+				return true;
+			}
+			if(Math.abs(x - right) <= dis && y >= top && y <= bottom){
+				ball.changeDir(0);
+				return true;
+			}
+			if(Math.abs(bottom - y) <= dis && x >= left && x <= right){
+				ball.changeDir(3);
+				return true;
+			}
+			if(Math.abs(top - y) <= dis && x >= left && x <= right){
+				ball.changeDir(2);
+				return true;
+			}
+			return false;
+		}
+	
+	}
+	
+	let brickList = [];
+	for(let i = 0;i < 20;i++){
+		for(let j = 0;j < 40;j++){
+			brickList.push(new Brick(left_bound + 50 + j * 10,
+									150 + i * 20,
+									10,
+									10));
+		}
+	}
+	
+	for(let i = 0;i < brickList.length;i++){
+		brickList[i].draw();
+	}
+	
+	class Ball{
+		
+		constructor(x,y,speedx,speedy,radius,tag){
+			this.x = x;
+			this.y = y;
+			this.speedx = speedx;
+			this.speedy = speedy;
+			this.radius = radius;
+			this.tag = tag;
+		}
+		
+		update(){
+			let x = this.x + this.speedx;
+			let y = this.y + this.speedy;
+			if(x - this.radius <= left_bound){
+				this.speedx = Math.abs(this.speedx);
+			}
+			if(x + this.radius >= right_bound){
+				this.speedx = -Math.abs(this.speedx);
+			}
+			
+			if(y + this.radius >= canvas.height){
+				this.speedy = -Math.abs(this.speedy);
+				this.tag = 0;
+			}
+			
+			if(y - this.radius <= 0){
+				this.speedy = Math.abs(this.speedy);
+				this.tag = 1;
+			}
+			
+			this.x += this.speedx;
+			this.y += this.speedy;
+		}
+		
+		draw(){
+			ctx.fillStyle = this.tag == 0 ? 'firebrick' : '#0055ff';
+			ctx.beginPath();
+			ctx.arc(this.x,this.y,this.radius,0,Math.PI * 2);
+			ctx.fill();
+		}
+		
+		changeDir(dir){
+			switch(dir){
+				case 0:this.speedx = Math.abs(this.speedx);break;		//右
+				case 1:this.speedx = -Math.abs(this.speedx);break;		//左
+				case 2:this.speedy = -Math.abs(this.speedy);break;		//上
+				case 3:this.speedy = Math.abs(this.speedy);break;		//下
+			}
+		}
+	}
+	
+	// let ball = new Ball((left_bound + right_bound) / 2,canvas.height - 50,10,10,5);
+	
+	let ballList = [];
+	
+	for(let i = 0;i < 8;i++){
+		let tag = Math.floor(Math.random() * 2);
+		ballList.push(new Ball(Math.random() * (right_bound - left_bound) + left_bound,
+							tag ? -Math.random() * 40 + canvas.height : Math.random() * 40,
+							Math.random() * 4 + 2,
+							Math.random() * 4 + 2,5,tag));
+	}
+	
+	setInterval(function(){
+		ctx.clearRect(left_bound,0,right_bound - left_bound,canvas.height);
+		
+		for(let i = 0;i < ballList.length;i++){
+			ballList[i].update();
+			for(let j = 0;j < brickList.length;j++){
+				if(brickList[j].checkCollision(ballList[i])){
+					brickList.splice(j,1);
+					j--;
+				}
+			}
+			ballList[i].draw();
+		}
+		for(let i = 0;i < brickList.length;i++){
+			brickList[i].draw();
+		}
+	},1000 / 60);
+</script>
+<!-- 
+<script src="test.js"></script> -->
