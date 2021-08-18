@@ -68,7 +68,7 @@ for(let i = 0;i < 20 ;i++) {
 		// if(tmp <= 2) tmp = 1000000; // 1/5几率是墙
 		// else tmp = parseInt(Math.random()*3+1,10); // 4/5几率是可破坏砖
 		if (map[i][j])
-			brickList.push(new Brick(left_bound + j * 40, i * 20, 40, 20, map[i][j]));
+			brickList.push(new Brick(left_bound + j * 39.8 + 2, i * 20, 40, 20, map[i][j]));
 	}
 }
 

@@ -23,7 +23,7 @@ class Brick{
 		ctx.closePath();
 		ctx.stroke();
 		ctx.fill();
-		if(this.level != 1000000) ctx.strokeText(this.level,this.x+7, this.y+13);
+		if(this.level != 1000000) ctx.strokeText(this.level,this.x + this.width/2 - 3, this.y + 13);
 	}
 	
 	checkCollision(ball){
