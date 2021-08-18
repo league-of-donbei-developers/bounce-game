@@ -1,4 +1,4 @@
-import {canvas,ctx,left_bound,right_bound} from './init.js'
+import {canvas,ctx,left_bound,right_bound} from './Init.js'
 import {Ball} from './Ball.js'
 import {Board} from './Board.js'
 import {Brick} from './Brick.js'
