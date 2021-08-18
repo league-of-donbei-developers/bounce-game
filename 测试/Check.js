@@ -13,11 +13,8 @@ function check(ballList,brickList,myBoard)
 				brickList.splice(j,1),j--;
 		}
 		myBoard.checkCollision(ballList[i]);
-		ballList[i].draw();
 	}
-	for(let i = 0;i < brickList.length;i++){
-		brickList[i].draw();
-	}
+	
 	if(ballList.length == 0 && brickList.length > 0)
 		alert("You Lose!");
 	

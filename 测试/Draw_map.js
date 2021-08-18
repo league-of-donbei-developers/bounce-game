@@ -2,7 +2,7 @@ import {canvas,left_bound,right_bound} from './Init.js'
 import {Ball} from './Ball.js'
 import {Board} from './Board.js'
 import {Brick} from './Brick.js'
-import {map} from './map.js'
+import {map} from './Map.js'
 
 function draw_map(id,flag) // 地图编号 单人关卡 flag = 1, 双人关卡 flag = 0.
 {

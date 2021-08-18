@@ -1,4 +1,4 @@
-import {canvas,ctx,left_bound,right_bound} from './init.js'
+import {canvas,ctx,left_bound,right_bound} from './Init.js'
 import {Ball} from './Ball.js'
 import {Board} from './Board.js'
 import {Brick} from './Brick.js'
@@ -35,8 +35,13 @@ setInterval(function()
 	}
 	else
 	{
+		check(ballList,brickList,myBoard);
+		// 渲染
 		ctx.clearRect(left_bound,0,right_bound - left_bound,canvas.height);
 		myBoard.move();
-		check(ballList,brickList,myBoard);
+		for(let i = 0;i < ballList.length;i++)
+			ballList[i].draw();
+		for(let i = 0;i < brickList.length;i++)
+			brickList[i].draw();
 	}
 },1000 / 60);
