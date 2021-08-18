@@ -35,7 +35,7 @@ class Ball{
 	}
 	
 	draw(){
-		ctx.fillStyle = this.tag == 0 ? 'firebrick' : '#0055ff';
+		ctx.fillStyle = this.tag == 0 ? 'red' : 'yellow';
 		ctx.beginPath();
 		ctx.arc(this.x,this.y,this.radius,0,Math.PI * 2);
 		ctx.fill();

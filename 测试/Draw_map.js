@@ -1,4 +1,4 @@
-import {canvas,left_bound,right_bound} from './Init.js'
+import {canvas,ctx,left_bound,right_bound} from './Init.js'
 import {Ball} from './Ball.js'
 import {Board} from './Board.js'
 import {Brick} from './Brick.js'
@@ -27,7 +27,7 @@ function draw_map(id,flag) // 地图编号 单人关卡 flag = 1, 双人关卡 f
 		for(let i = 0;i < 20 ;i++) {
 			for(let j = 0;j < 20;j++) {
 				if (map[id][i][j])
-					brickList.push(new Brick(left_bound + j * 39.8 + 2, i * 20,
+					brickList.push(new Brick(left_bound + j * 40, i * 20,
 											40, 20, map[id][i][j]));
 			}
 		}
@@ -38,7 +38,7 @@ function draw_map(id,flag) // 地图编号 单人关卡 flag = 1, 双人关卡 f
 	// -------------------------------------------------------- //  画平板 
 	let myBoard = new Board((left_bound+right_bound)/2,
 						canvas.height-50,
-						(right_bound-left_bound)/3,
+						100,
 						10,//宽度
 						12);//速度
 

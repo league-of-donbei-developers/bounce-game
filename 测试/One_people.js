@@ -38,8 +38,14 @@ window.onkeyup = function(e)
 
 setInterval(function()
 {
+	var background = new Image();
+	background.src = "./images/background.jpeg";
 	if(start == false)
 	{
+		ctx.drawImage(background, left_bound, 0, 800, canvas.height);
+	
+		for(let i = 0;i < brickList.length;i++)
+			brickList[i].draw();
 		ballList[0].clear();
 		ballList[0] = new Ball( (myBoard.len+myBoard.x+myBoard.x)/2,
 						canvas.height-60.1,
@@ -52,7 +58,7 @@ setInterval(function()
 	{
 		check(ballList,brickList,myBoard);
 		// 渲染
-		ctx.clearRect(left_bound,0,right_bound - left_bound,canvas.height);
+		ctx.drawImage(background, left_bound, 0, 800, canvas.height);
 		myBoard.move();
 		for(let i = 0;i < ballList.length;i++)
 			ballList[i].draw();

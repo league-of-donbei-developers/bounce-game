@@ -8,10 +8,11 @@ class Board{
 		this.width = wide; // 宽度
 		this.speed = speed; // 移动速度
 		this.dir = 0;
+		this.img = new Image();
 	}
 	draw(){
-		ctx.fillStyle = 'white';
-		ctx.fillRect(this.x,this.y,this.len,this.width);
+		this.img.src = "./images/board.png";
+		ctx.drawImage(this.img, this.x, this.y, this.len, this.width);
 	}	
 	update()
 	{
