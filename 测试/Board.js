@@ -1,7 +1,7 @@
+import {ctx,left_bound,right_bound} from './Init.js'
 class Board{
 	
-	constructor(dx,dy,len,wide,speed)
-	{
+	constructor(dx,dy,len,wide,speed){
 		this.x = dx-len/2; // 左上横坐标
 		this.y = dy-wide/2; // 左上纵坐标
 		this.len = len; // 长度
@@ -9,8 +9,7 @@ class Board{
 		this.speed = speed; // 移动速度
 		this.dir = 0;
 	}
-	draw()
-	{
+	draw(){
 		ctx.fillStyle = 'white';
 		ctx.fillRect(this.x,this.y,this.len,this.width);
 	}	
@@ -27,8 +26,7 @@ class Board{
 				this.x = this.x - this.speed; 
 		}
 	}
-	checkCollision(ball)
-	{
+	checkCollision(ball){
 		let x = ball.x;
 		let y = ball.y;
 		let bottom = this.y + this.width;
@@ -59,8 +57,11 @@ class Board{
 		}
 		return false;
 	}
-	clear()
-	{
+	clear(){
 		ctx.clearRect(this.x-0.5,this.y,this.len+0.7,this.width);
 	}
+	move(){
+		this.clear(),this.update(),this.draw();
+	}
 }
+export {Board}

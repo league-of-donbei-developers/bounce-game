@@ -1,3 +1,4 @@
+import {ctx} from './Init.js'
 class Brick{
 		
 	constructor(x,y,width,height,level){
@@ -8,8 +9,7 @@ class Brick{
 		this.level = level; 	
 	}
 	
-	draw()
-	{
+	draw(){
 		if(this.level != 1000000)
 			ctx.fillStyle = '#55007f';
 		else ctx.fillStyle = '#1E9FFF';
@@ -61,3 +61,4 @@ class Brick{
 		}
 	}
 }
+export {Brick}

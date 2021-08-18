@@ -1,3 +1,4 @@
+import {canvas,ctx,left_bound,right_bound} from './Init.js'
 class Ball{
 	
 	constructor(x,y,speedx,speedy,radius,tag){
@@ -39,6 +40,7 @@ class Ball{
 		ctx.arc(this.x,this.y,this.radius,0,Math.PI * 2);
 		ctx.fill();
 	}
+	
 	clear(){
 		let stepClear = 1;
 		clearArc(this.x,this.y,this.radius+0.6);
@@ -59,6 +61,7 @@ class Ball{
 	      	}
 	    }
 	}
+
 	changeDir(dir){
 		switch(dir){
 			case 0:this.speedx = Math.abs(this.speedx);break;		//右
@@ -68,3 +71,5 @@ class Ball{
 		}
 	}
 }
+
+export {Ball}
