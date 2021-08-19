@@ -7,7 +7,8 @@ class Board{
 		this.len = len; // 长度
 		this.width = wide; // 宽度
 		this.speed = speed; // 移动速度
-		this.dir = 0;
+		this.leftDir = 0;
+		this.rightDir = 0;
 		this.img = new Image();
 	}
 	draw(){
@@ -16,12 +17,12 @@ class Board{
 	}	
 	update()
 	{
-		if(this.dir == 1)
+		if(this.rightDir == 1)
 		{
 			if(this.x + this.len + this.speed <= right_bound)
 				this.x = this.x + this.speed; 
 		}
-		if(this.dir == -1)
+		if(this.leftDir == 1)
 		{
 			if(this.x - this.speed >= left_bound)
 				this.x = this.x - this.speed; 
