@@ -7,6 +7,8 @@ canvas.width = window.innerWidth;
 let left_bound  = canvas.width / 2 - 400;
 let right_bound = canvas.width / 2 + 400;
 
+let equator = canvas.height / 2;
+
 ctx.strokeStyle = 'white';
 ctx.beginPath();
 ctx.moveTo(left_bound, 0);
@@ -18,4 +20,4 @@ ctx.moveTo(right_bound, 0);
 ctx.lineTo(right_bound, canvas.height);
 ctx.stroke(); 	
 
-export{canvas,ctx,left_bound,right_bound}
+export{canvas,ctx,left_bound,right_bound,equator}
