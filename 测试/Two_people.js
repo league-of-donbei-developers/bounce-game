@@ -13,17 +13,21 @@ window.onkeydown = function(e)
 {
 	var e = e || window.event;
 	if(e.keyCode == 37)
-		myBoard.dir = -1; // 左移
+		myBoard.leftDir = 1; // 左移
 	if(e.keyCode == 39)
-		myBoard.dir = 1; // 右移
+		myBoard.rightDir = 1; // 右移
 	if(e.keyCode == 32)
 		start = true; 
 }
 window.onkeyup = function(e)
 {
 	var e = e || window.event;
-	if(e.keyCode == 37 || e.keyCode == 39)
-		myBoard.dir = 0;
+	if(e.keyCode == 37){
+		myBoard.leftDir = 0;
+	}
+	if(e.keyCode == 39){
+		myBoard.rightDir = 0;
+	}
 }
 
 setInterval(function()
@@ -44,4 +48,4 @@ setInterval(function()
 		for(let i = 0;i < brickList.length;i++)
 			brickList[i].draw();
 	}
-},1000 / 60);
+},1000 / 120);

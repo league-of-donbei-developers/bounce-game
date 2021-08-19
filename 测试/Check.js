@@ -1,3 +1,6 @@
+
+//碰撞校验处理函数
+//校验并处理弹球，板块与砖块的碰撞事件
 function check(ballList,brickList,myBoard)
 {
 	for(let i = 0;i < ballList.length;i++){ // 清除飞出去的小球
