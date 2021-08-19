@@ -48,8 +48,8 @@ setInterval(function()
 			brickList[i].draw();
 		ballList[0].clear();
 		ballList[0] = new Ball( (myBoard.len+myBoard.x+myBoard.x)/2,
-						canvas.height-60.1,
-						0,0,5,1);
+						canvas.height-65,
+						0,0,10,1);
 		ballList[0].draw();
 		myBoard.move();
 		return ;

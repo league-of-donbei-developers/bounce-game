@@ -48,7 +48,7 @@ function draw_map(id,flag) // 地图编号 单人关卡 flag = 1, 双人关卡 f
 	{
 		ballList.push(new Ball( (myBoard.len+myBoard.x+myBoard.x)/2,
 								canvas.height-60,
-								0,0,5,1));
+								0,0,10,1));
 	}
 	else
 	{
@@ -57,7 +57,7 @@ function draw_map(id,flag) // 地图编号 单人关卡 flag = 1, 双人关卡 f
 			ballList.push(new Ball(Math.random() * (right_bound - left_bound) + left_bound,
 								Math.random() * 40,
 								Math.random() * 2 + 2,
-								Math.random() * 2 + 2,5,tag));
+								Math.random() * 2 + 2,10,tag));
 		}
 	}
 	return [brickList,ballList,myBoard]
