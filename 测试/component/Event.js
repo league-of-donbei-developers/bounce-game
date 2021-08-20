@@ -1,7 +1,5 @@
-class Events
-{
-	constructor(eid,bid)
-	{
+class Events{
+	constructor(eid,bid){
 		this.eid = eid;
 		this.bid = bid;
 		this.parm = [];

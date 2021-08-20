@@ -16,13 +16,11 @@ class Board{
 		ctx.drawImage(this.img, this.x, this.y, this.len, this.width);	
 	}	
 	update(){
-		if(this.rightDir == 1)
-		{
+		if(this.rightDir == 1){
 			if(this.x + this.len + this.speed <= right_bound)
 				this.x = this.x + this.speed; 
 		}
-		if(this.leftDir == 1)
-		{
+		if(this.leftDir == 1){
 			if(this.x - this.speed >= left_bound)
 				this.x = this.x - this.speed; 
 		}

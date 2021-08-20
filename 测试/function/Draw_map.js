@@ -10,8 +10,7 @@ function draw_map(id,flag) // 地图编号 单人关卡 flag = 1, 双人关卡 f
 {
 	// -------------------------------------------------------- //  画地图 
 	let brickList = [];
-	if(flag == 0)
-	{
+	if(flag == 0){
 		for(let i = 0;i < 10;i++){
 			for(let j = 0;j < 20;j++){
 				if (two_map[id][i][j])
@@ -20,8 +19,7 @@ function draw_map(id,flag) // 地图编号 单人关卡 flag = 1, 双人关卡 f
 			}
 		}
 	}
-	else
-	{
+	else {
 		for(let i = 0;i < 20 ;i++) {
 			for(let j = 0;j < 20;j++) {
 				if (one_map[id][i][j])
