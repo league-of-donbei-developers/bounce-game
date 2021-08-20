@@ -62,5 +62,4 @@ two_map.push(
 , [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]]
 );
 
-export {one_map}
-export {two_map}
+export {one_map,two_map}

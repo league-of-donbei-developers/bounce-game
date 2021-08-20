@@ -1,9 +1,9 @@
 import {canvas,ctx,left_bound,right_bound,equator} from './Init.js'
-import {Ball} from './Ball.js'
-import {Board} from './Board.js'
-import {Brick} from './Brick.js'
-import {one_map} from './Map.js'
-import {two_map} from './Map.js'
+import {Ball} from '../component/Ball.js'
+import {Board} from '../component/Board.js'
+import {Brick} from '../component/Brick.js'
+import {one_map} from '../component/Map.js'
+import {two_map} from '../component/Map.js'
 
 
 function draw_map(id,flag) // 地图编号 单人关卡 flag = 1, 双人关卡 flag = 0.
