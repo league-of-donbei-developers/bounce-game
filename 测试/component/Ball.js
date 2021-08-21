@@ -1,4 +1,4 @@
-import {canvas,ctx,left_bound,right_bound} from '../function/Init.js'
+import {canvas,ctx} from '../function/Init.js'
 class Ball{
 	
 	constructor(x,y,speedx,speedy,radius,tag){
@@ -9,26 +9,10 @@ class Ball{
 		this.radius = radius;
 		this.tag = tag;
 		this.activate = true;
+		this.supper = false; // 超级球
 	}
 	
 	update(){
-		let x = this.x + this.speedx;
-		let y = this.y + this.speedy;
-		
-		if(x - this.radius <= left_bound){
-			this.speedx = Math.abs(this.speedx);
-		}
-		if(x + this.radius >= right_bound){
-			this.speedx = -Math.abs(this.speedx);
-		}
-		
-		if(y + this.radius >= canvas.height){
-			this.activate = false;
-		}
-		
-		if(y - this.radius <= 0){
-			this.speedy = Math.abs(this.speedy);
-		}
 		
 		this.x += this.speedx;
 		this.y += this.speedy;
@@ -42,27 +26,6 @@ class Ball{
 		ctx.fill();
 	}
 	
-	clear(){
-		let stepClear = 1;
-		clearArc(this.x,this.y,this.radius+0.6);
-	   	function clearArc(x,y,radius){
-	      	let calcWidth = radius-stepClear;
-	      	let calcHeight = Math.sqrt(radius*radius-calcWidth*calcWidth);  
-	
-	      	let posX = x - calcWidth;
-	      	let posY = y - calcHeight;  
-	
-	      	let widthX = 2 * calcWidth;
-	      	let heightY = 2 * calcHeight;  
-	 
-	      	if(stepClear <= radius){
-	         	ctx.clearRect(posX,posY,widthX,heightY);
-	         	stepClear += 1;
-	         	clearArc(x,y,radius);
-	      	}
-	    }
-	}
-
 	changeDir(dir){
 		switch(dir){
 			case 0:this.speedx = Math.abs(this.speedx);break;		//右

@@ -14,7 +14,7 @@ class Brick{
 	}
 	
 	draw(){
-		if(this.level <= 0) return ;
+		if(this.level <= 0 || this.activate == false) return ;
 		if (this.level == 1)
 			this.img = document.getElementById('brick1')
 		else if (this.level == 2)

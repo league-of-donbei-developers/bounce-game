@@ -9,6 +9,12 @@ class Game
 		this.eventList = [];
 		this.affectList = [];
 
+		this.score = 0;
+		this.scorePram = 1;
+		this.ballVatePram = 1;
+		this.boardLenPram = 0;
+		
+		this.time = 0;
 		//砖块音效
 		this.audio = document.createElement("audio");
 		this.audio.src = "./music/peng.mp3";
@@ -72,6 +78,15 @@ class Game
 		if(eid == 7) this.propStopping(bid);
 		if(eid == 8) this.propDisappear(bid);
 		if(eid == 9) this.playPeng();
+	}
+	checkAffect(affect)
+	{
+		if(affect.time == game.time)
+		{
+			affect.converter(0,this);
+			return 0;
+		} 
+		return 1;
 	}
 }	
 export {Game};
