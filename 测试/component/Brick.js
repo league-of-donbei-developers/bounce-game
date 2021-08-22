@@ -6,9 +6,11 @@ class Brick{
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.level = level; 	
+		this.level = level;
 		this.activate = true;
-		
+
+		this.propId = 2;
+
 		//砖块图像
 		this.img = new Image();
 	}
@@ -26,15 +28,13 @@ class Brick{
 		ctx.drawImage(this.img, this.x, this.y,this.width,this.height);
 	}
 	
-	//碰撞检测，砖块与球
 	disappear(){
 		this.activate = false;
 	}
 	
 	degrade(){
-		if(this.level == 1000000) return ;
+		if(this.activate == false || this.level == 1000000) return ;
 		this.level = this.level - 1;
-		if(this.level <= 0) this.disappear();
 	}
 
 }

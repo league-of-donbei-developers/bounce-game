@@ -61,20 +61,14 @@ window.onload = function()
 		} 
 		else
 		{
-			game.time = game.time + 1;
-
-			// 计算
+			
+			// 计算: 更新位置 计算碰撞 清除失效的特殊效果
 			calc(game);
 			
 			// 处理事件
 			for(let i = 0;i < game.eventList.length;i++)
 				game.doEvent(game.eventList[i]);
 			
-			// 处理特殊效果
-			for(let i = 0;i < game.affectList.length;i++)
-				if(!game.checkAffect(game.affectList[i]))
-					game.affectList.split(i,1),i--;
-
 			// 渲染
 			ctx.drawImage(background, left_bound, 0, 800, canvas.height);
 			for(let i = 0;i < game.ballList.length;i++)

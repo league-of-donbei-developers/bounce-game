@@ -28,8 +28,6 @@ function draw_map(id,flag) // 地图编号 单人关卡 flag = 1, 双人关卡 f
 			}
 		}
 	}
-	for(let i = 0;i < brickList.length;i++)
-		brickList[i].draw();
 
 	// -------------------------------------------------------- //  画平板 
 	let myBoard = new Board((left_bound+right_bound)/2,
