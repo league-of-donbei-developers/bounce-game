@@ -1,0 +1,222 @@
+html,body{
+	margin: 0px;
+	padding: 0px;
+}
+
+input:focus-visible {
+    outline-offset: 0px #00000000;
+}
+#canvas{
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+
+.connect{
+	position: absolute;
+    top: 0rem;
+    left: 50px;
+	/* box-sizing: border-box; */
+    height: 40px;
+    width: 250px;
+	line-height: 40px;
+	text-align: center;
+}
+.unconnected{
+	
+	border: 10px double red;
+	color: red;
+}
+
+.connecting{
+	
+	border: 10px double yellow;
+	color: yellow;
+}
+
+.connected{
+	
+	border: 10px double green;
+	color: green;
+}
+
+.info{
+	position: absolute;
+	/* box-sizing: border-box; */
+	top: 80px;
+	left: 50px;
+	height: 150px;
+	width: 250px;
+	
+	border: 10px double white;
+}
+
+.chat{
+	position: absolute;
+	bottom: 10px;
+	left: 50px;
+	height: 420px;
+	width: 250px;
+	/* box-sizing: border-box; */
+	border: 10px double white;
+}
+
+.info>.input{
+    width: 80%;
+    color: white;
+    /* border: 1px solid; */
+    margin: 10px auto;
+}
+.info>.input>input{
+    background-color: unset;
+    border: none;
+    border-bottom: 1px inset;
+    height: 30px;
+    width: 100px;
+    line-height: 30px;
+    text-align: left;
+	color:white;
+}
+
+.info>.conn{
+    display: block;
+    margin: 14px auto;
+    width: 70%;
+    height: 32px;
+    background-color: unset;
+    border: 3px solid;
+    color: white;
+	
+	cursor: pointer;
+}
+
+.info>.conn:hover{
+	color: black;
+	background-color: white;
+}
+
+.chat>.log{
+    border: 1px dotted white;
+    width: 90%;
+    height: 340px;
+    margin: 10px auto;
+    margin-bottom: 0px;
+	box-sizing: border-box;
+	padding: 1rem;
+	overflow: auto;
+	color: white;
+}
+
+.chat>.send{
+    width: 90%;
+    margin: auto;
+    border: 1px dotted white;
+    height: 50px;
+    border-top: 0px;
+}
+
+.chat>.send>input{
+    background-color: unset;
+    border: none;
+    border-bottom: 1px inset;
+    height: 30px;
+    width: 155px;
+    line-height: 30px;
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: white;
+	padding-left:1rem ;
+	box-sizing: border-box;
+}
+
+.chat>.send>button{
+	height: 30px;
+    margin-top: 5px;
+    background-color: unset;
+    border: 2px solid;
+    color: white;
+    cursor: pointer;
+}
+
+.chat>.send>button:hover{
+	color: black;
+	background-color: white;
+}
+
+.counter1{
+	position: absolute;
+	right: 200px;
+	top: 50px;
+	border: 4px dashed white;
+	height: 480px;
+	width: 150px;
+	color: white;
+}
+.counter2{
+	position: absolute;
+	right: 20px;
+	top: 50px;
+	border: 4px dashed white;
+	height: 480px;
+	width: 150px;
+	color: white;
+}
+
+.counter1>.title,
+.counter2>.title{
+	color: white;
+	font-size: 1.5rem;
+	font-weight: bold;
+	position: absolute;
+	top: -3rem;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.counter1>.item,
+.counter2>.item{
+    border: 0px solid;
+    padding-left: 0rem;
+    display: flex;
+    justify-content: space-around;
+    height: 26px;
+    width: 80%;
+    border-left: 10px solid;
+    border-right: 10px solid;
+    margin: auto;
+    margin-top: 13px;
+}
+
+.panel1{
+	position: absolute;
+	right: 200px;
+	top: 550px;
+	border: 4px dashed white;
+	height: 150px;
+	width: 150px;
+	color: white;
+}
+.panel2{
+	position: absolute;
+	right: 20px;
+	top: 550px;
+	border: 4px dashed white;
+	height: 150px;
+	width: 150px;
+	color: white;
+}
+
+.panel1>.item,
+.panel2>.item{
+    padding-left: 0rem;
+    display: flex;
+    justify-content: space-around;
+    height: 21px;
+    width: 84%;
+    margin: auto;
+    margin-top: 13px;
+}

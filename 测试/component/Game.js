@@ -4,7 +4,7 @@ import {Affect} from './Affect.js'
 import {Player} from './Player.js'
 class Game
 {
-	constructor(brickList,ballList,myboard,yourboard)
+	constructor(brickList,ballList,myboard,yourboard,tag)
 	{
 		this.brickList = brickList;
 		this.ballList = ballList;
@@ -13,8 +13,8 @@ class Game
 		this.affectList = [];
 
 		this.player = [];
-		this.player.push(new Player(myboard,0));
-		this.player.push(new Player(yourboard,1));
+		this.player.push(new Player(myboard,tag));
+		this.player.push(new Player(yourboard,tag^1));
 		
 		this.time = 0;
 		//砖块音效

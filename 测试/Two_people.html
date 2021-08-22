@@ -4,20 +4,7 @@
 		<link rel="icon" href="data:;base64,=">
 		<meta charset="utf-8">
 		<title></title>
-		<style>
-			html,body{
-				margin: 0px;
-				padding: 0px;
-			}
-			#canvas{
-				height: 100%;
-				width: 100%;
-				background-color: black;
-				position: absolute;
-				top:0px;
-				left: 0px;
-			}
-		</style>
+		<link rel="stylesheet" href="game.css" />
 	</head>
 	<body id="body">
 		<img src="./images/ball1.png"  id="ball1" style="display:none"></img>
@@ -30,7 +17,122 @@
 		<img src="./images/prop.png" id="prop" style="display: none;"></img>
 		<img src="./images/background.jpeg" id="background" style="display:none"></img>
 		<canvas id="canvas" width = "" height = ""></canvas>
+		
+		<div class="connect connected">未连接到服务器</div>
+		<div class="info">
+			<div class="room input">
+				房间名称：
+				<input type="text" placeholder="请输入房间名称"/>
+			</div>
+			<div class="name input">
+				你的昵称：
+				<input type="text" placeholder="请输入你的昵称" />
+			</div>
+			<button class="conn">点击连接</button>
+			
+		</div>
+		<div class="chat">
+			<div class="log">
+				
+			</div>
+			<div class="send">
+				<input type="text" placeholder="说点什么..">
+				<button>发送</button>
+			</div>
+		</div>
+		
+		<div class="counter1">
+			<div class="title">我方</div>
+			<div class="item">
+				<label>板长+2</label>
+				<label>1.25s</label>
+			</div>
+			<div class="item">
+				<label>双倍得分</label>
+				<label>1.25s</label>
+			</div>
+			<div class="item">
+				<label>超级球</label>
+				<label>1.25s</label>
+			</div>
+			<div class="item">
+				<label>板长+2</label>
+				<label>1.25s</label>
+			</div>
+			<div class="item">
+				<label>板长+2</label>
+				<label>1.25s</label>
+			</div>
+			
+		</div>
+		
+		<div class="panel1">
+			
+			<div class="item">
+				<label>得分</label>
+				<label>0</label>
+			</div>
+			<div class="item">
+				<label>板长</label>
+				<label>10</label>
+			</div>
+			<div class="item">
+				<label>球数</label>
+				<label>1</label>
+				
+			</div>
+			<div class="item">
+				<label>球速</label>
+				<label>1.0</label>
+				
+			</div>
+		</div>
+		<div class="counter2">
+			<div class="title">对方</div>
+			
+			<div class="item">
+				<label>板长+2</label>
+				<label>1.25s</label>
+			</div>
+			<div class="item">
+				<label>双倍得分</label>
+				<label>1.25s</label>
+			</div>
+			<div class="item">
+				<label>超级球</label>
+				<label>1.25s</label>
+			</div>
+			<div class="item">
+				<label>板长+2</label>
+				<label>1.25s</label>
+			</div>
+			<div class="item">
+				<label>板长+2</label>
+				<label>1.25s</label>
+			</div>
+			
+		</div>
+		
+		<div class="panel2">
+			<div class="item">
+				<label>得分</label>
+				<label>0</label>
+			</div>
+			<div class="item">
+				<label>板长</label>
+				<label>10</label>
+			</div>
+			<div class="item">
+				<label>球数</label>
+				<label>1</label>
+				
+			</div>
+			<div class="item">
+				<label>球速</label>
+				<label>1.0</label>
+				
+			</div>
+		</div>
 	</body>
 </html>
-<script src="jquery-3.5.1.js"></script>
 <script type="module" src="./Two_people.js"></script>

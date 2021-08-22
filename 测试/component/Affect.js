@@ -45,7 +45,7 @@ class Affect
 
 	addBoardLen(flag,player)
 	{
-		console.log(1);
+		console.table(player);
 		if(flag) player.board.len += 20;
 		if(!flag) player.board.len -= 20; 
 	}
