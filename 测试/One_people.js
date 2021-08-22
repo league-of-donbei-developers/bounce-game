@@ -8,7 +8,7 @@ import {calc} from './function/Calc.js'
 window.onload = function()
 {
 	let tmp = draw_map(1,1); // 1号地图,单人模式
-	var game = new Game(tmp[0],tmp[1],tmp[2]);
+	let game = new Game(tmp[0],tmp[1],tmp[2]);
 	let background = document.getElementById('background')
 	let start = false;
 

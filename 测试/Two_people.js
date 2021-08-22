@@ -1,19 +1,20 @@
 import {canvas,ctx,left_bound,right_bound} from './function/Init.js'
 import {Ball} from './component/Ball.js'
 import {Game} from './component/Game.js'
+import {Prop} from './component/Prop.js'
+import {Affect} from './component/Affect.js'
 import {draw_map} from './function/Draw_map.js'
 import {calc} from './function/Calc.js'
-
 window.onload = function()
 {
-	let tmp = draw_map(1,0); // 1号地图,双人模式
+	let tmp = draw_map(1,0); // 1号地图,单人模式
 	let game = new Game(tmp[0],tmp[1],tmp[2]);
 	let background = document.getElementById('background')
 	let start = false;
 
 	window.onkeydown = function(e)
 	{
-		var e = e || window.event;
+		e = e || window.event;
 		if(e.keyCode == 37)
 			game.board.leftDir = 1; // 左移
 		if(e.keyCode == 39)
@@ -32,7 +33,7 @@ window.onload = function()
 	}
 	window.onkeyup = function(e)
 	{
-		var e = e || window.event;
+		e = e || window.event;
 		if(e.keyCode == 37){
 			game.board.leftDir = 0;
 		}
@@ -40,7 +41,7 @@ window.onload = function()
 			game.board.rightDir = 0;
 		}
 	}
-	
+
 	setInterval(function()
 	{
 		if(start == false)
@@ -50,9 +51,6 @@ window.onload = function()
 			game.ballList[0] = new Ball( (game.board.len + game.board.x + game.board.x)/2,
 							canvas.height-65,
 							0,0,10,1);
-			// 处理事件
-			for(let i = 0;i < game.eventList.length;i++)
-				game.doEvent(game.eventList[i]);
 
 			// 渲染
 			ctx.drawImage(background, left_bound, 0, 800, canvas.height);
@@ -63,9 +61,10 @@ window.onload = function()
 		} 
 		else
 		{
-			// 计算
-			Calc(game);
-
+			
+			// 计算: 更新位置 计算碰撞 清除失效的特殊效果
+			calc(game);
+			
 			// 处理事件
 			for(let i = 0;i < game.eventList.length;i++)
 				game.doEvent(game.eventList[i]);
@@ -76,12 +75,12 @@ window.onload = function()
 				game.ballList[i].draw();
 			for(let i = 0;i < game.brickList.length;i++)
 				game.brickList[i].draw();
+			for(let i = 0;i < game.propList.length;i++)
+				game.propList[i].draw();
 			game.board.draw();
 		}
-
 		// 清空消息队列
 		game.eventList = [];
-		
+
 	},1000 / 60);
 }
-
