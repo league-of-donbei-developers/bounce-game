@@ -5,10 +5,11 @@ import {Prop} from './component/Prop.js'
 import {Affect} from './component/Affect.js'
 import {draw_map} from './function/Draw_map.js'
 import {calc} from './function/Calc.js'
+var game;
 window.onload = function()
 {
 	let tmp = draw_map(1,0); // 1号地图,单人模式
-	let game = new Game(tmp[0],tmp[1],tmp[2]);
+	game = new Game(tmp[0],tmp[1],tmp[2]);
 	let background = document.getElementById('background')
 	let start = false;
 
