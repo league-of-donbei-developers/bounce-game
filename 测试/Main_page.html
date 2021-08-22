@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="data:;base64,=">
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			html,body{
+				margin: 0px;
+				padding: 0px;
+                background-color: black;
+			}
+            p{
+                margin: 100px auto 200px auto;
+                text-align: center;
+                font-size: 100px;
+                color: cyan;
+            }
+            a{
+                text-decoration: none;
+            }
+
+            .background{
+				margin: 0px;
+				padding: 0px;
+                position: absolute;
+                left: calc(50% - 400px);
+                top: 0;
+                width: 800px;
+                height: 100%;
+                background-image: url(./images/background.jpeg);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+            .button{
+                display: block;
+                margin: 50px auto;
+                border-radius: 10px;
+                font-size: 20px;
+                top: 20px;
+                width: 150px;
+                height: 75px;
+                background: lightblue;
+            }
+		</style>
+	</head>
+	<body>
+        <div class="background">
+            <p>开 心 打 砖 块</p>
+            <a href="./One_people.html">
+                <button
+                onmouseover="this.style.backgroundColor='lightgreen'" onmouseout="this.style.backgroundColor='lightblue'" 
+                class="button">
+                    单 人 模 式
+                </button>
+            </a>
+            <a href="./Two_mode.html">
+                <button onmouseover="this.style.backgroundColor='lightgreen'" onmouseout="this.style.backgroundColor='lightblue'" class="button">
+                    双 人 模 式
+                </button>
+            </a>
+        </div>
+	</body>
+</html>
