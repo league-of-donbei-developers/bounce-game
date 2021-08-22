@@ -20,7 +20,7 @@ class Ball{
 	
 	draw(){
 		if(this.activate == false) return ;
-		ctx.fillStyle = this.tag == 0 ? 'red' : 'yellow';
+		ctx.fillStyle = this.tag == 1 ? 'red' : 'yellow';
 		ctx.beginPath();
 		ctx.arc(this.x,this.y,this.radius,0,Math.PI * 2);
 		ctx.fill();
@@ -35,8 +35,8 @@ class Ball{
 		}
 	}
 
-	changeColor(){
-		this.tag = this.tag ^ 1;
+	changeColor(tag){
+		this.tag = tag;
 	}
 
 	disappear(){

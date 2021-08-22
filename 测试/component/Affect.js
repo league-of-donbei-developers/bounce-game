@@ -1,63 +1,63 @@
 import {Ball} from './Ball.js'
 class Affect
 {
-	constructor(prop,time)
+	constructor(prop,time,tag)
 	{
 		this.eid = prop.eid;
-		this.time = time + 60 * prop.time; 
+		this.time = time + 60 * prop.time;
+		this.tag = tag;
 	}
 
-	doubleScore(flag,game)
+	doubleScore(flag,player)
 	{
-		if(flag) game.scoreParam = 1;
-		if(!flag) game.scoreParam = 0;	
+		if(flag) player.scoreParam = 1;
+		if(!flag) player.scoreParam = 0;	
 	}
 
-	addBall(flag,game)
+	addBall(flag,player,game)
 	{
 		if(flag)
 		{
-			game.ballList.push(new Ball( (game.board.len + game.board.x + game.board.x)/2,
-								canvas.height-65,
-								1,-2,10,1));	
-			game.ballList.push(new Ball( (game.board.len + game.board.x + game.board.x)/2,
-								canvas.height-65,
-								-1,-2,10,1));
-			game.ballList.push(new Ball( (game.board.len + game.board.x + game.board.x)/2,
-								canvas.height-65,
-								2,-2,10,1));	
-			game.ballList.push(new Ball( (game.board.len + game.board.x + game.board.x)/2,
-								canvas.height-65,
-								-2,-2,10,1));
+			let x,y;
+			if(player.tag == 0) x = -2, y = canvas.height-65;
+			else x = 1, y = 65; 
+			game.ballList.push(new Ball( (player.board.len + player.board.x + player.board.x)/2,
+								y,1,x,10,player.tag));	
+			game.ballList.push(new Ball( (player.board.len + player.board.x + player.board.x)/2,
+								y,-1,x,10,player.tag));
+			game.ballList.push(new Ball( (player.board.len + player.board.x + player.board.x)/2,
+								y,2,x,10,player.tag));	
+			game.ballList.push(new Ball( (player.board.len + player.board.x + player.board.x)/2,
+								y,-2,x,10,player.tag));
 		}
 	}
 	
-	addScore(flag,game)
+	addScore(flag,player)
 	{
-		if(flag) game.score = game.score + 5;
+		if(flag) player.score = player.score + 5;
 	}
 
-	doubleVate(flag,game)
+	doubleVate(flag,player)
 	{
-		if(flag) game.ballVateParam = 2; 
-		if(!flag) game.ballVateParam = 1;
+		if(flag) player.ballVateParam = 2; 
+		if(!flag) player.ballVateParam = 1;
 	}
 
-	addBoardLen(flag,game)
+	addBoardLen(flag,player)
 	{
 		console.log(1);
-		if(flag) game.board.len += 20;
-		if(!flag) game.board.len -= 20; 
+		if(flag) player.board.len += 20;
+		if(!flag) player.board.len -= 20; 
 	}
 
-	converter(flag,game) // 生效:flag = 1, 失效:flag = 0;  
+	converter(flag,player,game) // 生效:flag = 1, 失效:flag = 0;  
 	{
 		let eid = this.eid;
-		if(eid == 1) this.doubleScore(flag,game);
-		if(eid == 2) this.addBall(flag,game);
-		if(eid == 3) this.addScore(flag,game);
-		if(eid == 4) this.doubleVate(flag,game);
-		if(eid == 5) this.addBoardLen(flag,game);
+		if(eid == 1) this.doubleScore(flag,player);
+		if(eid == 2) this.addBall(flag,player,game);
+		if(eid == 3) this.addScore(flag,player);
+		if(eid == 4) this.doubleVate(flag,player);
+		if(eid == 5) this.addBoardLen(flag,player);
 	}
 	
 }

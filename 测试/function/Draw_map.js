@@ -30,18 +30,19 @@ function draw_map(id,flag) // 地图编号 单人关卡 flag = 1, 双人关卡 f
 	}
 
 	// -------------------------------------------------------- //  画平板 
-	let myBoard = new Board((left_bound+right_bound)/2,
-						canvas.height-50,
-						100,
-						10,//宽度
-						12);//速度
+	let myBoard = new Board((left_bound+right_bound)/2,canvas.height-50,
+						100,10,12,0); // 长度,宽度,速度,tag
 
+	let yourBoard = new Board((left_bound+right_bound)/2,(canvas.height)-(canvas.height-50),
+						100,10,12,1); // 长度,宽度,速度,tag
 	// -------------------------------------------------------- //  画小球 
 	let ballList = [];
 	ballList.push(new Ball( (myBoard.len+myBoard.x+myBoard.x)/2,
 							canvas.height-60,
+							0,0,10,0));
+	if(!flag) ballList.push(new Ball( (myBoard.len+myBoard.x+myBoard.x)/2,
+							60,
 							0,0,10,1));
-	
-	return [brickList,ballList,myBoard]
+	return [brickList,ballList,myBoard,yourBoard]
 }
 export {draw_map}

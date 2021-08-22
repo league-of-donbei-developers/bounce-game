@@ -1,14 +1,14 @@
 import {ctx} from '../function/Init.js'
 class Prop
 {
-	constructor(eid,x,y){
+	constructor(eid,x,y,tag){
 		this.eid = eid;
 		this.x = x;
 		this.y = y;
 		this.width = 20;
 		this.height = 20;
-		this.speed = 1;
-		
+		if(!tag) this.speed = 1;
+		else this.speed = -1;
 		this.activate = true;
 		this.time = 3;
 		this.img = new Image();

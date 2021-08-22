@@ -7,6 +7,7 @@ class Board{
 		this.len = len; // 长度
 		this.width = wide; // 宽度
 		this.speed = speed; // 移动速度
+		this.tag = 0;
 		this.leftDir = 0;
 		this.rightDir = 0;
 		this.img = new Image();

@@ -9,7 +9,7 @@ class Brick{
 		this.level = level;
 		this.activate = true;
 
-		this.propId = 2;
+		this.propId = 5;
 
 		//砖块图像
 		this.img = new Image();
