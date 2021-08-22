@@ -1,6 +1,6 @@
 import {canvas,ctx} from '../function/Init.js'
 class Ball{
-	
+	 
 	constructor(x,y,speedx,speedy,radius,tag){
 		this.x = x;
 		this.y = y;

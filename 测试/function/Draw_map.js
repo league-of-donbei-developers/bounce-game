@@ -4,7 +4,7 @@ import {Board} from '../component/Board.js'
 import {Brick} from '../component/Brick.js'
 import {one_map} from '../component/Map.js'
 import {two_map} from '../component/Map.js'
-
+ 
 
 function draw_map(id,flag,tag) // 地图编号 单人关卡 flag = 1, 双人关卡 flag = 0.
 {

@@ -1,6 +1,6 @@
 import {ctx,left_bound,right_bound} from '../function/Init.js'
 class Board{
-	
+	 
 	constructor(dx,dy,len,wide,speed){
 		this.x = dx-len/2; // 左上横坐标
 		this.y = dy-wide/2; // 左上纵坐标

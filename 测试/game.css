@@ -2,7 +2,7 @@ html,body{
 	margin: 0px;
 	padding: 0px;
 }
-
+ 
 input:focus-visible {
     outline-offset: 0px #00000000;
 }

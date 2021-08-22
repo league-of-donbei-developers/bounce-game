@@ -8,7 +8,7 @@ let left_bound  = canvas.width / 2 - 400;
 let right_bound = canvas.width / 2 + 400;
 
 let equator = canvas.height / 2;
-
+ 
 ctx.strokeStyle = 'white';
 ctx.beginPath();
 ctx.moveTo(left_bound, 0);

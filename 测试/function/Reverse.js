@@ -1,7 +1,7 @@
 import {canvas,ctx,left_bound,right_bound,equator} from './Init.js'
 function lok(x)
 {
-	return fabs(canvas.height - x);
+	return Math.abs(canvas.height - x);
 }
 function reverse(game)
 {

@@ -3,7 +3,7 @@ import {Events} from './Event.js'
 import {Affect} from './Affect.js'
 import {Player} from './Player.js'
 class Game
-{
+{ 
 	constructor(brickList,ballList,myboard,yourboard,tag)
 	{
 		this.brickList = brickList;

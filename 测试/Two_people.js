@@ -80,7 +80,7 @@ window.onload = function()
 		}
 		if(tmp[0] == "3")
 		{
-			var tmp = msg.data.split("++");
+			var tmp = tmp[1].split("++");
 			if(tmp.length == 2)
 			{
 				tmp[1] = JSON.parse(tmp[1]);
@@ -122,7 +122,6 @@ window.onload = function()
 		} 
 		else
 		{
-			
 			// 计算: 更新位置 计算碰撞 清除失效的特殊效果
 			calc(game);
 			
@@ -161,7 +160,7 @@ window.onload = function()
 				{
 					let msg = objectbuffer[0].msg;
 					reverse(msg);
-					// game = msg;
+					game = msg;
 				}
 				if(objectbuffer[0].id == 0)
 				{

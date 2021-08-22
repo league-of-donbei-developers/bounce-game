@@ -9,6 +9,6 @@ class Player
 		this.scoreParam = 1;
 		this.ballVateParam = 1;
 		this.boardLenParam = 0;
-	}
+	} 
 }
 export {Player}

@@ -1,6 +1,6 @@
 import {ctx} from '../function/Init.js'
 class Brick{
-		
+		 
 	constructor(x,y,width,height,level){
 		this.x = x;
 		this.y = y;

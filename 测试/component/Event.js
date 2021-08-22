@@ -5,6 +5,6 @@ class Events
 		this.bid = bid;
 		this.tag = tag;
 		this.param = [];
-	}
+	} 
 }
 export {Events};

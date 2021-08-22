@@ -23,7 +23,7 @@ function calc(game)
 		let tag = game.ballList[i].tag;
 		
 		// 检验球与边界碰撞
-		tmp = checkBoundary(game.ballList[i]);
+		tmp = checkBoundary(game.ballList[i],game);
 		if(tmp != -1)
 		{
 			if(tmp == 2) // 小球出界
@@ -214,7 +214,7 @@ function checkCollision3(prop,board)
 }
 
 // 检测球,边界碰撞
-function checkBoundary(ball)
+function checkBoundary(ball,game)
 {
 	let x = ball.x + ball.speedx;
 	let y = ball.y + ball.speedy;
@@ -223,12 +223,14 @@ function checkBoundary(ball)
 		return 0;
 	}
 	if(x + ball.radius >= right_bound){
-		return 1
+		return 1;
 	}
 	if(y + ball.radius >= canvas.height){
 		return 2;
 	}
 	if(y - ball.radius <= 0){
+		if(game.player.length == 2) return 2;
+
 		return 3;
 	}
 
