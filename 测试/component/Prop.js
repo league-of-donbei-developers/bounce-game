@@ -19,6 +19,9 @@ class Prop
 			this.img = document.getElementById('prop_qiu');
 		else if (this.eid == 5)
 			this.img = document.getElementById('prop_ban');
+		else if (this.eid == 114514)
+			this.img = document.getElementById('prop_s');
+
 		ctx.drawImage(this.img, this.x, this.y,this.width,this.height);
 	}
 	update(){
