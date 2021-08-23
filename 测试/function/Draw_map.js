@@ -6,6 +6,13 @@ import {one_map} from '../component/Map.js'
 import {two_map} from '../component/Map.js'
  
 
+function randProp()
+{
+	let tmp = parseInt(Math.random()*10+1,10);
+	if(tmp <= 2) return 2 // 1/5几率是墙
+	else if(tmp > 2 && tmp < 4) return 5;
+	return 0; 
+}
 function draw_map(id,flag,tag) // 地图编号 单人关卡 flag = 1, 双人关卡 flag = 0.
 {
 	// -------------------------------------------------------- //  画地图 
@@ -14,8 +21,10 @@ function draw_map(id,flag,tag) // 地图编号 单人关卡 flag = 1, 双人关�
 		for(let i = 0;i < 10;i++){
 			for(let j = 0;j < 20;j++){
 				if (two_map[id][i][j])
+				{
 					brickList.push(new Brick(left_bound + j * 40, equator - 100 + i * 20,
-											40, 20, two_map[id][i][j]));
+											40, 20, two_map[id][i][j],randProp()));
+				}
 			}
 		}
 	}
@@ -24,7 +33,7 @@ function draw_map(id,flag,tag) // 地图编号 单人关卡 flag = 1, 双人关�
 			for(let j = 0;j < 20;j++) {
 				if (one_map[id][i][j])
 					brickList.push(new Brick(left_bound + j * 40, i * 20,
-											40, 20, one_map[id][i][j]));
+											40, 20, one_map[id][i][j],randProp()));
 			}
 		}
 	}

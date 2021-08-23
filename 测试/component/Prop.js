@@ -3,10 +3,10 @@ class Prop
 {
 	constructor(eid,x,y,tag){
 		this.eid = eid;
-		this.x = x;
-		this.y = y;
-		this.width = 20;
-		this.height = 20;
+		this.x = x + 11;
+		this.y = y + 1;
+		this.width = 18;
+		this.height = 18;
 		if(!tag) this.speed = 1;
 		else this.speed = -1;
 		this.activate = true;
@@ -15,7 +15,13 @@ class Prop
 	}
 	draw(){
 		if(this.activate == false) return ;
-		this.img = document.getElementById('prop');
+		if (this.eid == 2)
+			this.img = document.getElementById('prop_qiu');
+		else if (this.eid == 5)
+			this.img = document.getElementById('prop_ban');
+		else if (this.eid == 114514)
+			this.img = document.getElementById('prop_s');
+
 		ctx.drawImage(this.img, this.x, this.y,this.width,this.height);
 	}
 	update(){
