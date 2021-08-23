@@ -7,7 +7,8 @@
 
 ### 单人模式demo
 ![1%_416 H( VUZQ$9}_7E%9B](https://user-images.githubusercontent.com/61442002/130409676-2d7748d0-4fbd-486d-8934-c82bdba4ac58.jpg)
-![U`ABD6N11WH(5D0AH(0N2L1](https://user-images.githubusercontent.com/61442002/130410538-557ddb76-07a0-416f-af7c-c0d4ab518575.jpg)
+![MG1D QN@S3164T~%HG_O3@V](https://user-images.githubusercontent.com/61442002/130412009-00546f44-71f5-42d6-b3f1-5ff7c488af18.png)
+
 
 
 ### 双人模式demo
@@ -20,10 +21,13 @@
 - 高可扩展性的游戏逻辑设计实现
   - 便于多种道具效果的引入与实现
   - 便于多人联机实现
-- 联机模式的通信问题
+- 联机模式的通信与同步问题
   - 通过什么样的方式，实现两个浏览器之间进行实时通信
-- 联机状态下的性能与同步问题
   - 怎样保证双方在游戏过程中能够同步游戏状态且保证游戏性能  
+- 游戏机制的多样性
+  - 道具系统
+  - 砖块系统
+  - 弹球系统
 
 
 ## 游戏逻辑架构
@@ -138,6 +142,11 @@ Game类是游戏的核心对象，包含：
   - 进入游戏后，双方浏览器各自独立进行游戏时间计算处理，画面渲染
   - 双方键盘输入事件，除在本机处理同时，转发给对方
   - 每间隔若干帧后，由host发起，将游戏该帧镜像转发给guest，对方接受后，根据该镜像修正或覆盖游戏数据完成同步     
+
+
+![{K`VU`W64~1VITYBKY12(4H](https://user-images.githubusercontent.com/61442002/130413147-32988edc-edaa-4f12-8edf-4fb6c6ee3321.jpg)
+![OCD`DYGP`{)Q%{(OPTBI05B](https://user-images.githubusercontent.com/61442002/130413412-6eed76c9-95f8-4004-8c3e-088ec0992736.jpg)
+
 
 
 ## 游戏实体设计
