@@ -18,8 +18,11 @@ class Game
 		
 		this.time = 0;
 		//砖块音效
-		this.audio = document.createElement("audio");
-		this.audio.src = "./music/peng.mp3";
+		this.audioBrick = document.createElement("audio");
+		this.audioBrick.src = "./music/peng.mp3";
+
+		this.audioProp = document.createElement("audio");
+		this.audioProp.src = "./music/get_prop.wav";
 	}
 
 	brickDisappear(id,tag) // 砖块消失
@@ -56,6 +59,7 @@ class Game
 	{
 		let affect = new Affect(this.propList[id],this.time,tag);
 		affect.converter(1,this.player[tag],this);
+		this.audioProp.play();
 		this.affectList.push(affect);
 	}
 
@@ -77,7 +81,7 @@ class Game
 
 	playPeng()
 	{
-		this.audio.play();
+		this.audioBrick.play();
 	}
 
 
